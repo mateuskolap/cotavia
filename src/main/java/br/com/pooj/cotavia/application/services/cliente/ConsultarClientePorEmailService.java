@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class BuscarClientePorEmailService {
+public class ConsultarClientePorEmailService {
     private final ClienteJpaRepository clienteRepository;
 
-    public BuscarClientePorEmailService(ClienteJpaRepository clienteRepository) {
+    public ConsultarClientePorEmailService(ClienteJpaRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
 
-    public Optional<Cliente> buscarPorEmail(String email) {
+    public Optional<Cliente> consultarPorEmail(String email) {
         return clienteRepository.findByEmail(email)
                 .map(ClienteMapper::toDomain);
     }

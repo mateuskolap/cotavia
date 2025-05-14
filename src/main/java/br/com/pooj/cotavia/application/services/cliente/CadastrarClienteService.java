@@ -7,10 +7,10 @@ import br.com.pooj.cotavia.infrastructure.persistence.repository.ClienteJpaRepos
 import org.springframework.stereotype.Service;
 
 @Service
-public class CriarClienteService {
+public class CadastrarClienteService {
     private final ClienteJpaRepository clienteRepository;
 
-    public CriarClienteService(ClienteJpaRepository clienteRepository) {
+    public CadastrarClienteService(ClienteJpaRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
 

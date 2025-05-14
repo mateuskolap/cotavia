@@ -12,9 +12,7 @@ import java.util.Optional;
 public class AtualizarClienteService {
     private final ClienteJpaRepository clienteRepository;
 
-    public AtualizarClienteService(ClienteJpaRepository clienteRepository) {
-        this.clienteRepository = clienteRepository;
-    }
+    public AtualizarClienteService(ClienteJpaRepository clienteRepository) { this.clienteRepository = clienteRepository; }
 
     public Optional<Cliente> atualizar(Long id, Cliente novosDados) {
         Optional<ClienteEntity> clienteExistente = clienteRepository.findById(id);
