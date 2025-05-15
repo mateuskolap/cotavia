@@ -1,4 +1,4 @@
-package br.com.pooj.cotavia.interfaces.controller;
+package br.com.pooj.cotavia.application.controller;
 
 import br.com.pooj.cotavia.application.services.destino.*;
 import br.com.pooj.cotavia.domain.model.Destino;

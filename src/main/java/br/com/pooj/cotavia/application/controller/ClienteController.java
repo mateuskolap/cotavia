@@ -1,4 +1,4 @@
-package br.com.pooj.cotavia.interfaces.controller;
+package br.com.pooj.cotavia.application.controller;
 
 import br.com.pooj.cotavia.application.services.cliente.AtualizarClienteService;
 import br.com.pooj.cotavia.application.services.cliente.ConsultarClientePorEmailService;

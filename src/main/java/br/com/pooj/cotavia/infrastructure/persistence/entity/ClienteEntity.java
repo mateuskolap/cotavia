@@ -1,5 +1,5 @@
 package br.com.pooj.cotavia.infrastructure.persistence.entity;
-
+  
 import jakarta.persistence.*;
 import lombok.*;
 
