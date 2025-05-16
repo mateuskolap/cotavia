@@ -5,7 +5,10 @@ import br.com.pooj.cotavia.infrastructure.persistence.entity.CotacaoEntity;
 
 public class CotacaoMapper {
     public static Cotacao toDomain(CotacaoEntity entity) {
-        return new Cotacao(entity.getId(), entity.getValorPago(), entity.getStatus(), entity.getDataPagamento(), ClienteMapper.toDomain(entity.getCliente());
+        return new Cotacao(entity.getId(), entity.getValorPago(), entity.getStatus(), entity.getDataPagamento(), ClienteMapper.toDomain(entity.getCliente()));
     }
 
+    public static CotacaoEntity toEntity(Cotacao cotacao) {
+        return new CotacaoEntity(cotacao.getId(), cotacao.getValorPago(), cotacao.getStatus(), cotacao.getDataPagamento(), ClienteMapper.toEntity(cotacao.getCliente()));
+    }
 }
