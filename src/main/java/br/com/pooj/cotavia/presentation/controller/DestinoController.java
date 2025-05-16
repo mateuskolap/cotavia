@@ -2,11 +2,17 @@ package br.com.pooj.cotavia.presentation.controller;
 
 import br.com.pooj.cotavia.application.usecases.destino.*;
 import br.com.pooj.cotavia.domain.model.Destino;
+import br.com.pooj.cotavia.presentation.dto.destino.AtualizarDestinoRequest;
+import br.com.pooj.cotavia.presentation.dto.destino.CadastrarDestinoRequest;
+import br.com.pooj.cotavia.presentation.dto.destino.DestinoResponse;
+import br.com.pooj.cotavia.presentation.dto.destino.mapper.DestinoRequestMapper;
+import br.com.pooj.cotavia.presentation.dto.destino.mapper.DestinoResponseMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "Destinos", description = "Endpoint para gerenciamento de clientes.")
+@Tag(name = "Destinos", description = "Endpoint para gerenciamento de destinos.")
 @RestController
 @RequestMapping("/api/destino")
 public class DestinoController {
@@ -36,31 +42,44 @@ public class DestinoController {
         this.listarDestinosService = listarDestinosService;
     }
 
-    @Operation(summary = "Cria um novo destino", description = "Cadastra um novo destino no sistema")
+    @Operation(summary = "Cadastra um novo destino", description = "Cadastra um novo destino no sistema")
     @PostMapping
-    public ResponseEntity<Destino> criar(@RequestBody Destino destino) {
-        Destino novo = cadastrarDestinoService.cadastrar(destino);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novo);
+    public ResponseEntity<DestinoResponse> criar(@RequestBody @Valid CadastrarDestinoRequest request) {
+        Destino destinoDomain = DestinoRequestMapper.toDomain(request);
+        Destino destinoSalvo = cadastrarDestinoService.cadastrar(destinoDomain);
+        DestinoResponse destinoResponse = DestinoResponseMapper.toResponse(destinoSalvo);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(destinoResponse);
     }
 
-    @Operation(summary = "atualiza o destino", description = "atualiza o cadastro do destino")
+    @Operation(summary = "Atualizar um destino", description = "Atualiza o cadastro do destino")
     @PutMapping("/{id}")
-    public ResponseEntity<Destino> atualizar(@PathVariable Long id, @RequestBody Destino destino) {
-        return atualizarDestinoService.atualizar(id, destino)
+    public ResponseEntity<DestinoResponse> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizarDestinoRequest request) {
+        Destino destinoParaAtualizar = DestinoRequestMapper.toDomain(request);
+
+        return atualizarDestinoService.atualizar(id, destinoParaAtualizar)
+                .map(DestinoResponseMapper::toResponse)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @Operation(summary = "Lista todos os destinos", description = "Retorna uma lista com todos os destinos cadastrados")
     @GetMapping
-    public ResponseEntity<List<Destino>> listarTodos() {
-        return ResponseEntity.ok(listarDestinosService.listarTodos());
+    public ResponseEntity<List<DestinoResponse>> listarTodos() {
+        List<Destino> destinos = listarDestinosService.listarTodos();
+
+        List<DestinoResponse> responseList = destinos.stream().
+                map(DestinoResponseMapper::toResponse)
+                .toList();
+
+        return ResponseEntity.ok(responseList);
     }
 
     @Operation(summary = "Busca um destino pelo seu ID", description = "Retorna um objeto Destino pelo ID")
     @GetMapping("/{id}")
-    public ResponseEntity<Destino> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<DestinoResponse> buscarPorId(@PathVariable Long id) {
         return consultarDestinoPorIdService.consultarPorId(id)
+                .map(DestinoResponseMapper::toResponse)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -68,11 +87,8 @@ public class DestinoController {
     @Operation(summary = "Deleta o destino", description = "Remove o destino do sistema pelo ID")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        boolean deletado = deletarDestinoService.deletar(id);
-        if (deletado) {
-            return ResponseEntity.noContent().build(); 
-        } else {
-            return ResponseEntity.notFound().build();  
-        }
+        return deletarDestinoService.deletar(id)
+                ? ResponseEntity.noContent().build()
+                : ResponseEntity.notFound().build();
     }
 }

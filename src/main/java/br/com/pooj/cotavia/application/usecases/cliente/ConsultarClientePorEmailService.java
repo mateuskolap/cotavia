@@ -1,7 +1,7 @@
 package br.com.pooj.cotavia.application.usecases.cliente;
 
 import br.com.pooj.cotavia.domain.model.Cliente;
-import br.com.pooj.cotavia.infrastructure.persistence.mapper.ClienteMapper;
+import br.com.pooj.cotavia.infrastructure.persistence.mapper.ClienteEntityMapper;
 import br.com.pooj.cotavia.infrastructure.persistence.repository.ClienteJpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +17,6 @@ public class ConsultarClientePorEmailService {
 
     public Optional<Cliente> consultarPorEmail(String email) {
         return clienteRepository.findByEmail(email)
-                .map(ClienteMapper::toDomain);
+                .map(ClienteEntityMapper::toDomain);
     }
 }
