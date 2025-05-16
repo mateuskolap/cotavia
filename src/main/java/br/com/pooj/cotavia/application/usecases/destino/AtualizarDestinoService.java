@@ -1,4 +1,4 @@
-package br.com.pooj.cotavia.application.services.destino;
+package br.com.pooj.cotavia.application.usecases.destino;
 
 import br.com.pooj.cotavia.domain.model.Destino;
 import br.com.pooj.cotavia.infrastructure.persistence.entity.DestinoEntity;

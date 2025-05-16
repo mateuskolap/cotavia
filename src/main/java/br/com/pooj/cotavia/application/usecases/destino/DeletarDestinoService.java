@@ -1,4 +1,4 @@
-package br.com.pooj.cotavia.application.services.destino;
+package br.com.pooj.cotavia.application.usecases.destino;
 
 import br.com.pooj.cotavia.infrastructure.persistence.repository.DestinoJpaRepository;
 import org.springframework.stereotype.Service;

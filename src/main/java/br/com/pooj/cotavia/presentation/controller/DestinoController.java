@@ -1,6 +1,6 @@
-package br.com.pooj.cotavia.application.controller;
+package br.com.pooj.cotavia.presentation.controller;
 
-import br.com.pooj.cotavia.application.services.destino.*;
+import br.com.pooj.cotavia.application.usecases.destino.*;
 import br.com.pooj.cotavia.domain.model.Destino;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

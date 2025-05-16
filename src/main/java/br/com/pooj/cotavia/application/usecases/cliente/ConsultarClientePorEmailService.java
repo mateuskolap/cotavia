@@ -1,4 +1,4 @@
-package br.com.pooj.cotavia.application.services.cliente;
+package br.com.pooj.cotavia.application.usecases.cliente;
 
 import br.com.pooj.cotavia.domain.model.Cliente;
 import br.com.pooj.cotavia.infrastructure.persistence.mapper.ClienteMapper;

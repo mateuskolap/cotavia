@@ -1,9 +1,9 @@
-package br.com.pooj.cotavia.application.controller;
+package br.com.pooj.cotavia.presentation.controller;
 
-import br.com.pooj.cotavia.application.services.cliente.AtualizarClienteService;
-import br.com.pooj.cotavia.application.services.cliente.ConsultarClientePorEmailService;
-import br.com.pooj.cotavia.application.services.cliente.CadastrarClienteService;
-import br.com.pooj.cotavia.application.services.cliente.ListarClientesService;
+import br.com.pooj.cotavia.application.usecases.cliente.AtualizarClienteService;
+import br.com.pooj.cotavia.application.usecases.cliente.ConsultarClientePorEmailService;
+import br.com.pooj.cotavia.application.usecases.cliente.CadastrarClienteService;
+import br.com.pooj.cotavia.application.usecases.cliente.ListarClientesService;
 import br.com.pooj.cotavia.domain.model.Cliente;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
