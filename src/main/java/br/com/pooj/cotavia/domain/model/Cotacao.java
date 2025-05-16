@@ -17,4 +17,5 @@ public class Cotacao {
     private StatusCotacao status;
     private LocalDateTime dataPagamento;
     private Cliente cliente;
+    private Destino destino;
 }

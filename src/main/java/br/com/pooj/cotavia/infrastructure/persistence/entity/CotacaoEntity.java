@@ -29,4 +29,8 @@ public class CotacaoEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "cliente_id", nullable = false)
     private ClienteEntity cliente;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "destino_id", nullable = false)
+    private DestinoEntity destino;
 }
