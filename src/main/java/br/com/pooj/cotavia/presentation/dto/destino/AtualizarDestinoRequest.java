@@ -1,6 +1,5 @@
 package br.com.pooj.cotavia.presentation.dto.destino;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
