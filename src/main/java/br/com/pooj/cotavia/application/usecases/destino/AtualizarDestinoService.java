@@ -1,8 +1,8 @@
-package br.com.pooj.cotavia.application.services.destino;
+package br.com.pooj.cotavia.application.usecases.destino;
 
 import br.com.pooj.cotavia.domain.model.Destino;
 import br.com.pooj.cotavia.infrastructure.persistence.entity.DestinoEntity;
-import br.com.pooj.cotavia.infrastructure.persistence.mapper.DestinoMapper;
+import br.com.pooj.cotavia.infrastructure.persistence.mapper.DestinoEntityMapper;
 import br.com.pooj.cotavia.infrastructure.persistence.repository.DestinoJpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +26,6 @@ public class AtualizarDestinoService {
         destino.setPrecoPorPessoa(novosDados.getPrecoPorPessoa());
 
         DestinoEntity destinoAtualizado = destinoRepository.save(destino);
-        return Optional.of(DestinoMapper.toDomain(destinoAtualizado));
+        return Optional.of(DestinoEntityMapper.toDomain(destinoAtualizado));
     }
 }

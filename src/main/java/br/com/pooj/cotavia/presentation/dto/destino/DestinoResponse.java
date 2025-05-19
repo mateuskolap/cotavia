@@ -1,4 +1,4 @@
-package br.com.pooj.cotavia.domain.model;
+package br.com.pooj.cotavia.presentation.dto.destino;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
-public class Destino {
+public class DestinoResponse {
     private Long id;
     private String nome;
     private String descricao;

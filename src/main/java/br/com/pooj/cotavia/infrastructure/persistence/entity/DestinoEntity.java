@@ -1,15 +1,13 @@
 package br.com.pooj.cotavia.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
-@Data
 @Entity
 @Table(name = "tb_destino")
+@Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 public class DestinoEntity {
     @Id

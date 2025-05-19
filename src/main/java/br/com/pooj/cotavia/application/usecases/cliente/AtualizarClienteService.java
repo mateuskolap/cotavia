@@ -1,8 +1,8 @@
-package br.com.pooj.cotavia.application.services.cliente;
+package br.com.pooj.cotavia.application.usecases.cliente;
 
 import br.com.pooj.cotavia.domain.model.Cliente;
 import br.com.pooj.cotavia.infrastructure.persistence.entity.ClienteEntity;
-import br.com.pooj.cotavia.infrastructure.persistence.mapper.ClienteMapper;
+import br.com.pooj.cotavia.infrastructure.persistence.mapper.ClienteEntityMapper;
 import br.com.pooj.cotavia.infrastructure.persistence.repository.ClienteJpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +26,6 @@ public class AtualizarClienteService {
         cliente.setDocumento(novosDados.getDocumento());
 
         ClienteEntity clienteAtualizado = clienteRepository.save(cliente);
-        return Optional.of(ClienteMapper.toDomain(clienteAtualizado));
+        return Optional.of(ClienteEntityMapper.toDomain(clienteAtualizado));
     }
 }

@@ -1,18 +1,16 @@
-package br.com.pooj.cotavia.domain.model;
+package br.com.pooj.cotavia.presentation.dto.cliente;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
-
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
-public class Destino {
+public class ClienteResponse {
     private Long id;
     private String nome;
-    private String descricao;
-    private String localizacao;
-    private BigDecimal precoPorPessoa;
+    private String email;
+    private String telefone;
+    private String documento;
 }

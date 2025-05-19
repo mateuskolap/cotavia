@@ -1,7 +1,7 @@
-package br.com.pooj.cotavia.application.services.cliente;
+package br.com.pooj.cotavia.application.usecases.cliente;
 
 import br.com.pooj.cotavia.domain.model.Cliente;
-import br.com.pooj.cotavia.infrastructure.persistence.mapper.ClienteMapper;
+import br.com.pooj.cotavia.infrastructure.persistence.mapper.ClienteEntityMapper;
 import br.com.pooj.cotavia.infrastructure.persistence.repository.ClienteJpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ public class ListarClientesService {
     public List<Cliente> listarTodos() {
         return clienteRepository.findAll()
                 .stream()
-                .map(ClienteMapper::toDomain)
+                .map(ClienteEntityMapper::toDomain)
                 .collect(Collectors.toList());
     }
 }

@@ -1,7 +1,7 @@
-package br.com.pooj.cotavia.application.services.destino;
+package br.com.pooj.cotavia.application.usecases.destino;
 
 import br.com.pooj.cotavia.domain.model.Destino;
-import br.com.pooj.cotavia.infrastructure.persistence.mapper.DestinoMapper;
+import br.com.pooj.cotavia.infrastructure.persistence.mapper.DestinoEntityMapper;
 import br.com.pooj.cotavia.infrastructure.persistence.repository.DestinoJpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ public class ConsultarDestinoPorIdService {
 
     public Optional<Destino> consultarPorId(Long id) {
         return destinoRepository.findById(id)
-                .map(DestinoMapper::toDomain);
+                .map(DestinoEntityMapper::toDomain);
     }
 }
