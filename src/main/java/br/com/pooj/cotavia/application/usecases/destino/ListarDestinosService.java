@@ -12,7 +12,9 @@ import java.util.stream.Collectors;
 public class ListarDestinosService {
     private final DestinoJpaRepository destinoRepository;
 
-    public ListarDestinosService(DestinoJpaRepository destinoRepository) {this.destinoRepository = destinoRepository; }
+    public ListarDestinosService(DestinoJpaRepository destinoRepository) {
+        this.destinoRepository = destinoRepository;
+    }
 
     public List<Destino> listarTodos() {
         return destinoRepository.findAll()
