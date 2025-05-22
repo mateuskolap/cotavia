@@ -2,16 +2,17 @@ package br.com.pooj.cotavia.application.usecases.desconto;
 
 import br.com.pooj.cotavia.application.dtos.DescontoDTO;
 import br.com.pooj.cotavia.application.exceptions.DescontoNotFoundException;
-import br.com.pooj.cotavia.domain.repositories.DescontoRepository;
+import br.com.pooj.cotavia.infrastructure.persistence.repository.DescontoJpaRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 public class DetalharDescontoService {
-    private final DescontoRepository descontoRepository;
+    private final DescontoJpaRepository descontoRepository;
 
-    public DetalharDescontoService(DescontoRepository descontoRepository) {
+    public DetalharDescontoService(DescontoJpaRepository descontoRepository) {
         this.descontoRepository = descontoRepository;
     }
 

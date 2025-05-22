@@ -6,13 +6,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
-@Gerter @Setter
+import br.com.pooj.cotavia.domain.enums.StatusPagamentoEnum;
+
+@Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 public class Pagamento {
     private Long id;
     private BigDecimal valorPago;
-    private String status;
+    private StatusPagamentoEnum status;
     private LocalDateTime dataPagamento;
     private Cotacao cotacao;
 }

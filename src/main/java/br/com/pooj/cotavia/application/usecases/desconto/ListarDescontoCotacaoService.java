@@ -1,7 +1,9 @@
 package br.com.pooj.cotavia.application.usecases.desconto;
 
-import br.com.pooj.cotavia.application.dtos.DescontoDTO;
-import br.com.pooj.cotavia.domain.repositories.DescontoRepository;
+import br.com.pooj.cotavia.domain.model.Desconto;
+import br.com.pooj.cotavia.infrastructure.persistence.mapper.DescontoEntityMapper;
+import br.com.pooj.cotavia.infrastructure.persistence.repository.DescontoJpaRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,16 +11,16 @@ import java.util.stream.Collectors;
 
 @Service
 public class ListarDescontoCotacaoService {
-    private final DescontoRepository descontoRepository;
+    private final DescontoJpaRepository descontoRepository;
 
-    public ListarDescontoCotacaoService(DescontoRepository descontoRepository) {
+    public ListarDescontoCotacaoService(DescontoJpaRepository descontoRepository) {
         this.descontoRepository = descontoRepository;
     }
 
-    public List<DescontoDTO> listarDescontos() {
+    public List<Desconto> listarTodos() {
         return descontoRepository.findAll()
                 .stream()
-                .map(DescontoDTO::new)
+                .map(DescontoEntityMapper::toDomain)
                 .collect(Collectors.toList());
     }
 }

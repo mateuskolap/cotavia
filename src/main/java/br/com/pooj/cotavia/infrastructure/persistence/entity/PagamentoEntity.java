@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import br.com.pooj.cotavia.domain.enums.StatusPagamentoEnum;
+
 
 @Entity
 @Table(name = "tb_pagamento")
@@ -17,8 +21,9 @@ public class PagamentoEntity {
     @Column(nullable = false)
     private BigDecimal valorPago;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String status;
+    private StatusPagamentoEnum status;
 
     @Column(nullable = false)
     private LocalDateTime dataPagamento;

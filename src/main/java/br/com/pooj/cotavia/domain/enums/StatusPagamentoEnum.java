@@ -1,7 +1,6 @@
 package br.com.pooj.cotavia.domain.enums;
 
-public enum StatusCotacao {
+public enum StatusPagamentoEnum {
     PENDENTE,
-    APROVADA,
-    REJEITADA
+    PAGO
 }

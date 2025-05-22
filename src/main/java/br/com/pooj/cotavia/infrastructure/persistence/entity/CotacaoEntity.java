@@ -3,7 +3,7 @@ package br.com.pooj.cotavia.infrastructure.persistence.entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import br.com.pooj.cotavia.domain.enums.StatusCotacao;
+import br.com.pooj.cotavia.domain.enums.StatusCotacaoEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +21,7 @@ public class CotacaoEntity {
     
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private StatusCotacao status;
+    private StatusCotacaoEnum status;
     
     @Column(nullable = false)
     private LocalDateTime dataPagamento;
