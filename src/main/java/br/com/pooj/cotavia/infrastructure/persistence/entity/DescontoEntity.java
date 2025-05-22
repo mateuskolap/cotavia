@@ -6,22 +6,22 @@ import lombok.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "tb_pagamento")
+@Table(name = "tb_desconto")
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
-public class PagamentoEntity {
+public class DescontoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private BigDecimal valorPago;
+    private String descricao;
 
     @Column(nullable = false)
-    private String status;
+    private BigDecimal valorDesconto;
 
     @Column(nullable = false)
-    private LocalDateTime dataPagamento;
+    private LocalDateTime dataAplicacao;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "cotacao_id", nullable = false)

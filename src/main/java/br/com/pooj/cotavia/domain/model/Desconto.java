@@ -7,12 +7,12 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Gerter @Setter
+@Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
-public class Pagamento {
+public class Desconto {
     private Long id;
-    private BigDecimal valorPago;
-    private String status;
-    private LocalDateTime dataPagamento;
+    private BigDecimal valorDesconto;
+    private String descricao;
+    private LocalDateTime dataAplicacao;
     private Cotacao cotacao;
 }
