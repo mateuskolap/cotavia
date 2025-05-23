@@ -1,21 +1,21 @@
 package br.com.pooj.cotavia.domain.model;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
-import br.com.pooj.cotavia.domain.enums.StatusCotacaoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import br.com.pooj.cotavia.domain.enums.StatusPagamentoEnum;
+
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
-public class Cotacao {
+public class Pagamento {
     private Long id;
     private BigDecimal valorPago;
-    private StatusCotacaoEnum status;
+    private StatusPagamentoEnum status;
     private LocalDateTime dataPagamento;
-    private Cliente cliente;
-    private Destino destino;
+    private Cotacao cotacao;
 }

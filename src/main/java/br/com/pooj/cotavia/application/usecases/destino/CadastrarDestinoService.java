@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 public class CadastrarDestinoService {
     private final DestinoJpaRepository destinoRepository;
 
-    public CadastrarDestinoService(DestinoJpaRepository destinoRepository) { this.destinoRepository = destinoRepository; }
+    public CadastrarDestinoService(DestinoJpaRepository destinoRepository) {
+        this.destinoRepository = destinoRepository;
+    }
 
     public Destino cadastrar(Destino destino) {
         DestinoEntity cadastrado = destinoRepository.save(DestinoEntityMapper.toEntity(destino));

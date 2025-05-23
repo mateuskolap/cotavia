@@ -1,6 +1,6 @@
 package br.com.pooj.cotavia.application.usecases.cotacao;
 
-import br.com.pooj.cotavia.domain.enums.StatusCotacao;
+import br.com.pooj.cotavia.domain.enums.StatusCotacaoEnum;
 import br.com.pooj.cotavia.domain.model.Cotacao;
 import br.com.pooj.cotavia.infrastructure.persistence.entity.CotacaoEntity;
 import br.com.pooj.cotavia.infrastructure.persistence.mapper.CotacaoEntityMapper;
@@ -17,7 +17,7 @@ public class AtualizarStatusCotacaoService {
         this.cotacaoRepository = cotacaoRepository;
     }
 
-    public Optional<Cotacao> atualizarStatus(Long id, StatusCotacao novoStatus) {
+    public Optional<Cotacao> atualizarStatus(Long id, StatusCotacaoEnum novoStatus) {
         return cotacaoRepository.findById(id)
                 .map(cotacaoEntity -> {
                     cotacaoEntity.setStatus(novoStatus);

@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 public class DeletarDestinoService {
     private final DestinoJpaRepository destinoRepository;
 
-    public DeletarDestinoService(DestinoJpaRepository destinoRepository) { this.destinoRepository = destinoRepository; }
+    public DeletarDestinoService(DestinoJpaRepository destinoRepository) {
+        this.destinoRepository = destinoRepository;
+    }
 
     public boolean deletar(Long id) {
         if (!destinoRepository.existsById(id)) {

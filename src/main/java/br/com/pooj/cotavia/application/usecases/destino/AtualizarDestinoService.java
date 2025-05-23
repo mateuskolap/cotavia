@@ -12,7 +12,9 @@ import java.util.Optional;
 public class AtualizarDestinoService {
     private final DestinoJpaRepository destinoRepository;
 
-    public AtualizarDestinoService(DestinoJpaRepository destinoRepository) { this.destinoRepository = destinoRepository; }
+    public AtualizarDestinoService(DestinoJpaRepository destinoRepository) {
+        this.destinoRepository = destinoRepository;
+    }
 
     public Optional<Destino> atualizar(Long id, Destino novosDados) {
         Optional<DestinoEntity> destinoExistente = destinoRepository.findById(id);
