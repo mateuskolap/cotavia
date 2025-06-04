@@ -1,7 +1,8 @@
 package br.com.pooj.cotavia.core.interfaces.customer;
 
-import br.com.pooj.cotavia.core.models.Customer;
+import br.com.pooj.cotavia.api.dtos.request.CreateCustomerRequestDto;
+import br.com.pooj.cotavia.api.dtos.response.CustomerResponseDto;
 
 public interface UpdateCustomerCase {
-    Customer execute(Long id, Customer updatedCustomer);
+    CustomerResponseDto execute(Long id, CreateCustomerRequestDto updatedCustomer);
 }

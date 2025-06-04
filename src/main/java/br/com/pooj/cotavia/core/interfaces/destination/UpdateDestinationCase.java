@@ -1,7 +1,8 @@
 package br.com.pooj.cotavia.core.interfaces.destination;
 
-import br.com.pooj.cotavia.core.models.Destination;
+import br.com.pooj.cotavia.api.dtos.request.CreateDestinationRequestDto;
+import br.com.pooj.cotavia.api.dtos.response.DestinationResponseDto;
 
 public interface UpdateDestinationCase {
-    Destination execute(Long id, Destination updatedDestination);
+    DestinationResponseDto execute(Long id, CreateDestinationRequestDto updatedDestination);
 }

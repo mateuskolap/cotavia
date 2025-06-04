@@ -19,4 +19,8 @@ public class Quote {
     private Integer numberOfTravellers;
     private BigDecimal price;
     private QuoteStatus status;
+
+    public void calculatePrice() {
+        this.price = destination.getPricePerPerson().multiply(BigDecimal.valueOf(numberOfTravellers));
+    }
 }

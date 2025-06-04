@@ -2,8 +2,8 @@ package br.com.pooj.cotavia.api.dtos.request;
 
 import java.math.BigDecimal;
 
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
@@ -16,6 +16,6 @@ public class CreateDestinationRequestDto {
     @NotBlank(message = "O endereço é obrigatório")
     private String address;
 
-    @NotEmpty(message = "O preço por pessoa é obrigatório")
+    @DecimalMin(value = "0.0", inclusive = false, message = "O valor deve ser maior que 0")
     private BigDecimal pricePerPerson;
 }

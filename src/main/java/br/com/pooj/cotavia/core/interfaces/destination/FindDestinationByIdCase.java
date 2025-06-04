@@ -2,8 +2,8 @@ package br.com.pooj.cotavia.core.interfaces.destination;
 
 import java.util.Optional;
 
-import br.com.pooj.cotavia.core.models.Destination;
+import br.com.pooj.cotavia.api.dtos.response.DestinationResponseDto;
 
 public interface FindDestinationByIdCase {
-    Optional<Destination> execute(Long id);
+    Optional<DestinationResponseDto> execute(Long id);
 }

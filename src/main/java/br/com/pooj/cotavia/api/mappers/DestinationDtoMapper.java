@@ -3,7 +3,7 @@ package br.com.pooj.cotavia.api.mappers;
 import org.springframework.stereotype.Component;
 
 import br.com.pooj.cotavia.api.dtos.request.CreateDestinationRequestDto;
-import br.com.pooj.cotavia.api.dtos.response.DestinationResponseDTO;
+import br.com.pooj.cotavia.api.dtos.response.DestinationResponseDto;
 import br.com.pooj.cotavia.core.models.Destination;
 
 @Component
@@ -21,18 +21,18 @@ public class DestinationDtoMapper {
         return destination;
     }
 
-    public DestinationResponseDTO toResponse(Destination domain) {
+    public DestinationResponseDto toResponse(Destination domain) {
         if (domain == null) {
             return null;
         }
-        DestinationResponseDTO destination = new DestinationResponseDTO();
+        DestinationResponseDto dto = new DestinationResponseDto();
 
-        destination.setId(domain.getId());
-        destination.setName(domain.getName());
-        destination.setDescription(domain.getDescription());
-        destination.setAddress(domain.getAddress());
-        destination.setPricePerPerson(domain.getPricePerPerson());
+        dto.setId(domain.getId());
+        dto.setName(domain.getName());
+        dto.setDescription(domain.getDescription());
+        dto.setAddress(domain.getAddress());
+        dto.setPricePerPerson(domain.getPricePerPerson());
 
-        return destination;
+        return dto;
     }
 }

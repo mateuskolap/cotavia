@@ -2,8 +2,8 @@ package br.com.pooj.cotavia.core.interfaces.quote;
 
 import java.util.Optional;
 
-import br.com.pooj.cotavia.core.models.Quote;
+import br.com.pooj.cotavia.api.dtos.response.QuoteResponseDto;
 
 public interface FindQuoteByIdCase {
-    Optional<Quote> execute(Long id);
+    Optional<QuoteResponseDto> execute(Long id);
 }

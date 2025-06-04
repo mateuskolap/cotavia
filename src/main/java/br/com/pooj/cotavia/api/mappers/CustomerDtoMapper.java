@@ -3,7 +3,7 @@ package br.com.pooj.cotavia.api.mappers;
 import org.springframework.stereotype.Component;
 
 import br.com.pooj.cotavia.api.dtos.request.CreateCustomerRequestDto;
-import br.com.pooj.cotavia.api.dtos.response.CustomerResponseDTO;
+import br.com.pooj.cotavia.api.dtos.response.CustomerResponseDto;
 import br.com.pooj.cotavia.core.models.Customer;
 
 @Component
@@ -21,18 +21,18 @@ public class CustomerDtoMapper {
         return customer;
     }
 
-    public CustomerResponseDTO toResponse(Customer domain) {
+    public CustomerResponseDto toResponse(Customer domain) {
         if (domain == null) {
             return null;
         }
-        CustomerResponseDTO customer = new CustomerResponseDTO();
+        CustomerResponseDto dto = new CustomerResponseDto();
 
-        customer.setId(domain.getId());
-        customer.setName(domain.getName());
-        customer.setEmail(domain.getEmail());
-        customer.setPhoneNumber(domain.getPhoneNumber());
-        customer.setDocument(domain.getDocument());
+        dto.setId(domain.getId());
+        dto.setName(domain.getName());
+        dto.setEmail(domain.getEmail());
+        dto.setPhoneNumber(domain.getPhoneNumber());
+        dto.setDocument(domain.getDocument());
 
-        return customer;
+        return dto;
     }
 }

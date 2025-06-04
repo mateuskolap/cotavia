@@ -4,8 +4,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import br.com.pooj.cotavia.api.dtos.response.CustomerResponseDto;
+import br.com.pooj.cotavia.api.mappers.CustomerDtoMapper;
 import br.com.pooj.cotavia.core.interfaces.customer.FindCustomerByEmailCase;
-import br.com.pooj.cotavia.core.models.Customer;
 import br.com.pooj.cotavia.core.repositories.CustomerRepository;
 import lombok.AllArgsConstructor;
 
@@ -14,8 +15,11 @@ import lombok.AllArgsConstructor;
 public class FindCustomerByEmailCaseImpl implements FindCustomerByEmailCase {
     private final CustomerRepository customerRepository;
 
+    private final CustomerDtoMapper customerDtoMapper;
+
     @Override
-    public Optional<Customer> execute(String email) {
-        return customerRepository.findByEmail(email);
+    public Optional<CustomerResponseDto> execute(String email) {
+        return customerRepository.findByEmail(email)
+                                 .map(customerDtoMapper::toResponse);
     }
 }
