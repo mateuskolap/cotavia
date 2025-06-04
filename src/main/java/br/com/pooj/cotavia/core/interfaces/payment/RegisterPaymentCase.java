@@ -1,7 +1,8 @@
 package br.com.pooj.cotavia.core.interfaces.payment;
 
-import br.com.pooj.cotavia.core.models.Payment;
+import br.com.pooj.cotavia.api.dtos.request.CreatePaymentRequestDto;
+import br.com.pooj.cotavia.api.dtos.response.PaymentResponseDto;
 
 public interface RegisterPaymentCase {
-    Payment execute(Payment payment);
+    PaymentResponseDto execute(CreatePaymentRequestDto request);
 }

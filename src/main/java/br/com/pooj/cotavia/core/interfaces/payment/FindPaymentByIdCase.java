@@ -2,8 +2,8 @@ package br.com.pooj.cotavia.core.interfaces.payment;
 
 import java.util.Optional;
 
-import br.com.pooj.cotavia.core.models.Payment;
+import br.com.pooj.cotavia.api.dtos.response.PaymentResponseDto;
 
 public interface FindPaymentByIdCase {
-    Optional<Payment> execute(Long id);
+    Optional<PaymentResponseDto> execute(Long id);
 }
