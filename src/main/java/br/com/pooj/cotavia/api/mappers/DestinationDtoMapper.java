@@ -1,16 +1,38 @@
 package br.com.pooj.cotavia.api.mappers;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.springframework.stereotype.Component;
 
-import br.com.pooj.cotavia.api.dtos.request.CreateDestinationRequest;
-import br.com.pooj.cotavia.api.dtos.response.DestinationResponse;
+import br.com.pooj.cotavia.api.dtos.request.CreateDestinationRequestDto;
+import br.com.pooj.cotavia.api.dtos.response.DestinationResponseDTO;
 import br.com.pooj.cotavia.core.models.Destination;
 
-@Mapper(componentModel = "spring")
-public interface DestinationDtoMapper {
-    @Mapping(target = "id", ignore = true)
-    Destination toDomain(CreateDestinationRequest request);
+@Component
+public class DestinationDtoMapper {
+    public Destination toDomain(CreateDestinationRequestDto request) {
+        if (request == null) {
+            return null;
+        }
+        Destination destination = new Destination();
 
-    DestinationResponse toResponse(Destination destination);
+        destination.setName(request.getName());
+        destination.setDescription(request.getDescription());
+        destination.setAddress(request.getAddress());
+        destination.setPricePerPerson(request.getPricePerPerson());
+        return destination;
+    }
+
+    public DestinationResponseDTO toResponse(Destination domain) {
+        if (domain == null) {
+            return null;
+        }
+        DestinationResponseDTO destination = new DestinationResponseDTO();
+
+        destination.setId(domain.getId());
+        destination.setName(domain.getName());
+        destination.setDescription(domain.getDescription());
+        destination.setAddress(domain.getAddress());
+        destination.setPricePerPerson(domain.getPricePerPerson());
+
+        return destination;
+    }
 }

@@ -2,10 +2,7 @@ package br.com.pooj.cotavia.infra.persistence.entities;
 
 import java.math.BigDecimal;
 
-import br.com.pooj.cotavia.core.models.Address;
-import br.com.pooj.cotavia.infra.persistence.converter.AddressConverter;
 import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,9 +29,8 @@ public class DestinationEntity {
 
     private String description;
 
-    @Column(columnDefinition = "TEXT")
-    @Convert(converter = AddressConverter.class)
-    private Address address;
+    @Column(nullable = false)
+    private String address;
 
     @Column(nullable = false)
     private BigDecimal pricePerPerson;

@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Destination {
-    private String id;
+    private Long id;
     private String name;
     private String description;
-    private Address address;
+    private String address;
     private BigDecimal pricePerPerson;
 }

@@ -14,6 +14,9 @@ public class RegisterDestinationCaseImpl implements RegisterDestinationCase {
 
     @Override
     public Destination execute(Destination destination) {
+        if (destination.getAddress() == null) {
+            throw new IllegalArgumentException("Address não pode ser nulo");
+        }
         return destinationRepository.save(destination);
     }
 }

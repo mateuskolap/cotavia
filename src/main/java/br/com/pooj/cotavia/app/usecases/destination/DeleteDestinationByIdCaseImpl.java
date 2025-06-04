@@ -14,7 +14,7 @@ public class DeleteDestinationByIdCaseImpl implements DeleteDestinationCase {
     @Override
     public void execute(Long id) {
         if (!destinationRepository.existsById(id)) {
-            throw new RuntimeException("Cliente não encontrado");
+            throw new RuntimeException("Destino não encontrado");
         }
 
         destinationRepository.deleteById(id);
