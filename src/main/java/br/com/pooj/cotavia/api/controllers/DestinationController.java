@@ -50,7 +50,7 @@ public class DestinationController {
         return ResponseEntity.ok(responseList);
     }
 
-    @Operation(summary = "Buscar destino pelo id", description = "Retorna os dados de um cliente com base no id informado")
+    @Operation(summary = "Buscar destino pelo id", description = "Retorna os dados de um destino com base no id informado")
     @GetMapping("/{id}")
     public ResponseEntity<DestinationResponseDto> findById(@PathVariable Long id) {
         DestinationResponseDto response = findDestinationByIdCase.execute(id)

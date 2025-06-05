@@ -4,8 +4,6 @@ import java.util.Optional;
 
 import br.com.pooj.cotavia.api.dtos.response.DiscountResponseDto;
 import br.com.pooj.cotavia.api.mappers.DiscountDtoMapper;
-import br.com.pooj.cotavia.core.models.Quote;
-import br.com.pooj.cotavia.core.repositories.QuoteRepository;
 import org.springframework.stereotype.Service;
 
 import br.com.pooj.cotavia.core.interfaces.discount.FindDiscountByIdCase;

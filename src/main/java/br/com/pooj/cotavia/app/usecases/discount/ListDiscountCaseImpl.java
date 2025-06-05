@@ -8,7 +8,6 @@ import br.com.pooj.cotavia.api.mappers.DiscountDtoMapper;
 import org.springframework.stereotype.Service;
 
 import br.com.pooj.cotavia.core.interfaces.discount.ListDiscountCase;
-import br.com.pooj.cotavia.core.models.Discount;
 import br.com.pooj.cotavia.core.repositories.DiscountRepository;
 import lombok.AllArgsConstructor;
 
